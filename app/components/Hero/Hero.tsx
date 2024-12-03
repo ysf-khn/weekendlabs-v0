@@ -1,6 +1,7 @@
 "use client";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import gsap from "gsap";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const Hero = () => {
@@ -36,6 +37,14 @@ const Hero = () => {
       tl.to(".hero-pre-loader-btn", {
         opacity: 1,
         duration: 0.5,
+      });
+
+      gsap.to(".hero-cta-center", {
+        opacity: 1,
+        scale: 1,
+        ease: "power2.out",
+        duration: 0.6,
+        delay: 3, // Same as 3000ms
       });
     }
   }, []);
@@ -136,24 +145,47 @@ const Hero = () => {
       {/* Rest of your existing content */}
       <div className="hero-website-content">
         <div className="hero-navbar">
-          <div className="hero-logo">Chiara Luzzana</div>
-          <div className="hero-menu-icon">Menu</div>
+          <div className="hero-logo">
+            <Image
+              src="/LogoTextWhite.svg"
+              height={250}
+              width={250}
+              alt="Weekend Labs Logo"
+            />
+          </div>
+          {/* <div className="hero-menu-icon">Menu</div> */}
         </div>
         <div className="hero-site-header">
           <div className="hero-row">
             <div className="hero-header-row">
-              <span>the</span>purity
+              websites <span>that</span>impress
             </div>
             {/* <div className="hero-header-row-wrapper"></div> */}
           </div>
           <div className="hero-row">
             <div className="hero-header-row">
-              <span>of</span>noise
+              stores <span> that</span>sell
+            </div>
+            {/* <div className="hero-header-row-wrapper"></div> */}
+          </div>
+
+          <div className="hero-row">
+            <div className="hero-header-row">
+              logos<span> that</span>define
+            </div>
+            {/* <div className="hero-header-row-wrapper"></div> */}
+          </div>
+          <div className="hero-row">
+            <div className="hero-header-row">
+              designs <span> that</span>inspire
             </div>
             {/* <div className="hero-header-row-wrapper"></div> */}
           </div>
         </div>
-        <div className="hero-footer">Everyday life is her sound</div>
+        <div className="hero-footer">
+          From sleek websites to powerful ecommerce stores, from unforgettable
+          logos to inspiring designs, we help your business stand out and grow.
+        </div>
       </div>
     </section>
   );
