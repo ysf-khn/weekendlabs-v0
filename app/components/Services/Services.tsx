@@ -1,33 +1,46 @@
 "use client";
-
-import React, { useState } from "react";
+import { useScroll } from "framer-motion";
+import { useEffect, useRef } from "react";
+import Lenis from "lenis";
+import Card from "./Card";
 import { services } from "./services-data";
-import ServiceImage from "./ServiceImage";
-import ServiceCard from "./ServiceCard";
 
 export default function Services() {
-  const [activeService, setActiveService] = useState(0);
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
 
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  });
   return (
-    <section className="min-h-screen bg-black text-white pt-20 px-4 md:px-8 lg:px-16">
-      <h2 className="text-4xl md:text-5xl mb-16">Services</h2>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <div className="relative aspect-[4/3] bg-[#0A0A14]  overflow-hidden">
-          <ServiceImage activeService={activeService} />
-        </div>
-
-        <div className="space-y-2">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
-              isActive={activeService === index}
-              onHover={() => setActiveService(index)}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    <main ref={container} className="relative mt-[20vh]">
+      <h1 className="text-center font-bold uppercase text-[5vw]">
+        Our Services
+      </h1>
+      {services.map((project: any, i: number) => {
+        const targetScale = 1 - (services.length - i) * 0.05;
+        return (
+          <Card
+            key={`p_${i}`}
+            i={i}
+            {...project}
+            progress={scrollYProgress}
+            // range needs to be updated according to the # of items in array. current is 100/8
+            range={[i * 0.111, 1]}
+            targetScale={targetScale}
+          />
+        );
+      })}
+    </main>
   );
 }
