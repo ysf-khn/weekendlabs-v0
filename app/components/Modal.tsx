@@ -83,12 +83,7 @@ export default function Modal({ modal, projects }: any) {
                 style={{ backgroundColor: color }}
                 key={`modal_${index}`}
               >
-                <Image
-                  src={`/images/${src}`}
-                  width={300}
-                  height={0}
-                  alt="image"
-                />
+                <Image src={src} width={300} height={0} alt="image" />
               </div>
             );
           })}

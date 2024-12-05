@@ -5,7 +5,8 @@ export const services = [
     description:
       "We create modern, stunning websites that elevate your online presence.",
     image: "/services/WebsiteImage.png",
-    color: "#BBACAF",
+    color: "#E8DDD5",
+    textColor: "black",
   },
   {
     id: "ecommerce",
@@ -13,7 +14,8 @@ export const services = [
     description:
       "Our ecommerce solutions are designed to convert visitors into customers.",
     image: "/services/ecommerceImage.png",
-    color: "#977F6D",
+    color: "#E5E5E5",
+    textColor: "black",
   },
   {
     id: "branding",
@@ -21,7 +23,7 @@ export const services = [
     description:
       "We create logos and branding that are unforgettable and iconic.",
     image: "/services/logoImage.png",
-    color: "#88A28D",
+    color: "#3C373D",
   },
   {
     id: "custom-software",
@@ -29,14 +31,14 @@ export const services = [
     description:
       "We build tailored solutions to streamline your business operations.",
     image: "/services/software.jpeg",
-    color: "#C2491D",
+    color: "#FA7A1A",
   },
   {
     id: "ui-ux",
     title: "Bored with bland designs?",
     description: "Our UI/UX designs captivate and keep your users engaged.",
     image: "/services/designImage.webp",
-    color: "#B62429",
+    color: "#6216FF",
   },
 
   {
@@ -45,7 +47,7 @@ export const services = [
     description:
       "With expert SEO strategies, we’ll make your business stand out on search engines.",
     image: "/services/seoImage.png",
-    color: "#BBACAF",
+    color: "#69D3F3",
   },
   {
     id: "ai",
@@ -53,22 +55,22 @@ export const services = [
     description:
       "Our AI automation solutions save you time and boost efficiency.",
     image: "/services/automationImage.png",
-    color: "#977F6D",
+    color: "#05162E",
   },
   {
     id: "mockups",
     title: "Need a preview before the final product?",
     description: "We create detailed mockups to help visualize your ideas.",
-    image: "",
-    color: "#C2491D",
+    image: "/services/mockupImage.jpg",
+    color: "#070707",
   },
   {
     id: "social",
     title: "Struggling to grow on social media?",
     description:
-      "Our social media marketing strategies increase engagement and drive results.",
-    image: "",
-    color: "#B62429",
+      "Our social media marketing strategies increase engagement and drive results (Coming soon).",
+    image: "/services/socialImage.png",
+    color: "#3A4B55",
   },
   {
     id: "product-catalog",
@@ -76,6 +78,7 @@ export const services = [
     description:
       "We design product catalogs that showcase your offerings with style and clarity.",
     image: "/services/catalogImage.png", // Open catalog or product layout
-    color: "#BBACAF",
+    color: "#FFFFFF",
+    textColor: "black",
   },
 ];

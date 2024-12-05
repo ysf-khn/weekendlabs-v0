@@ -11,6 +11,7 @@ const Card = ({
   image,
   url,
   color,
+  textColor,
   progress,
   range,
   targetScale,
@@ -28,19 +29,18 @@ const Card = ({
     <div ref={container} className={styles.cardContainer}>
       <motion.div
         style={{
-          // backgroundColor: color,
-          backgroundColor: "black",
-          border: "3px solid green",
+          backgroundColor: color,
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
+          color: textColor,
         }}
         className={styles.card}
       >
-        <h2 className="uppercase">{title}</h2>
+        <h2 className="uppercase font-bold">{title}</h2>
         <div className={styles.body}>
           <div className={styles.description}>
             <p>{description}</p>
-            <span>
+            {/* <span>
               <a href={url} target="_blank">
                 See more
               </a>
@@ -56,12 +56,20 @@ const Card = ({
                   fill="black"
                 />
               </svg>
-            </span>
+            </span> */}
           </div>
 
           <div className={styles.imageContainer}>
             <motion.div className={styles.inner} style={{ scale: imageScale }}>
-              <Image fill src={image} alt="image" />
+              <Image
+                fill
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "50% 35%",
+                }}
+                src={image}
+                alt="image"
+              />
             </motion.div>
           </div>
         </div>
