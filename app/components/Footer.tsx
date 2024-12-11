@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="md:flex justify-between">
               <div>
                 <h1 className="text-xl md:text-4xl mb-2">
-                  We are your business's secret to the digital world.
+                  We are your business&apos;s secret to the digital world.
                 </h1>
                 <h1 className="text-xl md:text-3xl">
                   Interested in working with us?

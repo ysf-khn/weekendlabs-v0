@@ -76,7 +76,7 @@ const Testimonials = () => {
               >
                 {organisation}
               </p>
-              <p className=" text-xl md:text-4xl">"{review}"</p>
+              <p className=" text-xl md:text-4xl">&quot;{review}&quot;</p>
             </div>
           );
         })}
