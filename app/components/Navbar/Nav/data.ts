@@ -1,18 +1,14 @@
 export const links = [
   {
+    title: "Services",
+    href: "/",
+  },
+  {
     title: "Projects",
     href: "/",
   },
   {
-    title: "Agency",
-    href: "/",
-  },
-  {
-    title: "Expertise",
-    href: "/",
-  },
-  {
-    title: "Careers",
+    title: "About",
     href: "/",
   },
   {
@@ -22,20 +18,20 @@ export const links = [
 ];
 
 export const footerLinks = [
-  {
-    title: "Facebook",
-    href: "/",
-  },
-  {
-    title: "LinkedIn",
-    href: "/",
-  },
+  // {
+  //   title: "Facebook",
+  //   href: "/",
+  // },
+  // {
+  //   title: "LinkedIn",
+  //   href: "/",
+  // },
   {
     title: "Instagram",
     href: "/",
   },
-  {
-    title: "Twitter",
-    href: "/",
-  },
+  // {
+  //   title: "Twitter",
+  //   href: "/",
+  // },
 ];

@@ -2,10 +2,37 @@
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import gsap from "gsap";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
+
 const Hero = () => {
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
+  const [isInView, setIsInView] = useState(false);
+
+  const heroSectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        root: null, // viewport
+        threshold: 0.1, // 10% of the section must be visible
+      }
+    );
+
+    if (heroSectionRef.current) {
+      observer.observe(heroSectionRef.current);
+    }
+
+    return () => {
+      if (heroSectionRef.current) {
+        observer.unobserve(heroSectionRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -86,7 +113,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero-body">
+    <section ref={heroSectionRef} className="hero-body">
       {isPreloaderVisible && (
         <div className="hero-pre-loader">
           <div className="hero-pre-loader-container">
@@ -122,7 +149,7 @@ const Hero = () => {
               </div>
 
               <div className="hero-header flex">
-                <h1>Brand's&nbsp;</h1>
+                <h1>Brand&apos;s&nbsp;</h1>
                 <h1 data-text="Essence">Essence</h1>
                 <h1>&nbsp;and&nbsp;</h1>
                 <h1 data-text="Drive Growth">Drive Growth</h1>
@@ -151,10 +178,6 @@ const Hero = () => {
           borderBottomRightRadius: "30px",
         }}
       >
-        {/* <ShaderGradient
-          control="query"
-          urlString="https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=1.2&cAzimuthAngle=180&cDistance=3.6&cPolarAngle=90&cameraZoom=1&color1=%2300E96F&color2=%231F2B37&color3=%233A57B5&destination=onCanvas&embedMode=off&envPreset=city&format=gif&fov=45&frameRate=10&gizmoHelper=hide&grain=on&lightType=3d&pixelDensity=1&positionX=-1.4&positionY=0&positionZ=0&range=enabled&rangeEnd=40&rangeStart=0&reflection=0.1&rotationX=0&rotationY=10&rotationZ=50&shader=defaults&type=plane&uDensity=1.3&uFrequency=5.5&uSpeed=0.4&uStrength=4&uTime=0&wireframe=false"
-        /> */}
         <ShaderGradient
           control="query"
           urlString="https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=0.8&cAzimuthAngle=270&cDistance=0.5&cPolarAngle=180&cameraZoom=15.1&color1=%233A57B5&color2=%2300E96F&color3=%23212120&destination=onCanvas&embedMode=off&envPreset=city&format=gif&fov=45&frameRate=10&gizmoHelper=hide&grain=on&lightType=env&pixelDensity=1&positionX=-0.1&positionY=0&positionZ=0&range=enabled&rangeEnd=40&rangeStart=0&reflection=0.4&rotationX=0&rotationY=130&rotationZ=70&shader=defaults&type=sphere&uAmplitude=3.2&uDensity=0.8&uFrequency=5.5&uSpeed=0.3&uStrength=0.3&uTime=0&wireframe=false"

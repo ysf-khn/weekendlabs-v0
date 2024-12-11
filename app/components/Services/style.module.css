@@ -78,3 +78,84 @@
 .cardContainer .card .body .imageContainer img {
   object-fit: cover;
 }
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .cardContainer .card {
+    height: auto;
+    width: 80%;
+    padding: 30px;
+    border-radius: 20px;
+    top: 0;
+  }
+
+  .cardContainer .card h2 {
+    font-size: 26px;
+  }
+
+  .cardContainer .card .body {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .cardContainer .card .body .description {
+    width: 100%;
+    top: 0;
+  }
+
+  .cardContainer .card .body .description p {
+    font-size: 20px;
+  }
+
+  .cardContainer .card .body .description p::first-letter {
+    font-size: 28px;
+  }
+
+  .cardContainer .card .body .imageContainer {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContainer .card {
+    height: 680px;
+    width: 90%;
+    padding: 20px;
+    border-radius: 15px;
+    top: 0;
+  }
+
+  .cardContainer .card h2 {
+    font-size: 24px;
+  }
+
+  .cardContainer .card .body {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cardContainer .card .body .description {
+    width: 100%;
+    top: 0;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .cardContainer .card .body .description p {
+    font-size: 18px;
+  }
+
+  .cardContainer .card .body .description p::first-letter {
+    font-size: 24px;
+  }
+
+  .cardContainer .card .body .imageContainer {
+    position: relative;
+    margin-top: 1.5rem;
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+  }
+}
