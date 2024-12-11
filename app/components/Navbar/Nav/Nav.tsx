@@ -10,7 +10,7 @@ export default function Nav() {
           const { title, href } = link;
           return (
             <div key={`b_${i}`} className="linkContainer">
-              <motion.div
+              <motion.a
                 href={href}
                 custom={i}
                 variants={perspective}
@@ -19,7 +19,7 @@ export default function Nav() {
                 exit="exit"
               >
                 <a>{title}</a>
-              </motion.div>
+              </motion.a>
             </div>
           );
         })}
