@@ -120,7 +120,7 @@ const Projects = () => {
             );
           })}
         </div>
-        <div className="hidden sm:block">
+        <div className="hidden lg:block">
           <Modal modal={modal} projects={projects} />
         </div>
       </main>

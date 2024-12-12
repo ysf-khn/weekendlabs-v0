@@ -32,7 +32,7 @@ export default function Project({
         style={{ width: "100%", height: "auto", borderRadius: "0.5rem" }}
         sizes="100vw"
         alt={`${title}'s Image`}
-        className="md:hidden"
+        className="lg:hidden"
       />
 
       <h2>{title}</h2>
