@@ -18,7 +18,7 @@ export const Common = ({ color }: any) => (
     <PerspectiveCamera makeDefault fov={40} position={[0, 0, 6]} />
   </Suspense>
 );
-
+// @ts-ignore
 const View = forwardRef(({ children, orbit, ...props }, ref) => {
   const localRef = useRef(null);
   useImperativeHandle(ref, () => localRef.current);
@@ -27,6 +27,7 @@ const View = forwardRef(({ children, orbit, ...props }, ref) => {
     <>
       <div ref={localRef} {...props} />
       <Three>
+        {/* @ts-ignore */}
         <ViewImpl track={localRef}>
           {children}
           {orbit && <OrbitControls />}
