@@ -43,7 +43,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="mt-[20vh] pt-8">
+    <section className="mt-[20vh] pt-8 bg-transparent">
       {animateLetters("Client Testimonials", 0)}
 
       <main className="mt-[12vh] w-4/5 mx-auto">
