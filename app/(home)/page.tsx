@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero/Hero";
 import Testimonials from "../components/Testimonials/Testimonials";
 
-const Page = () => {
+export default function Page() {
   return (
     <>
       <Hero />
@@ -16,6 +16,4 @@ const Page = () => {
       <Footer />
     </>
   );
-};
-
-export default Page;
+}

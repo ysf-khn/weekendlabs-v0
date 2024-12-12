@@ -1,5 +1,3 @@
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
-
 const EmailContactLink = ({ styles }: any) => {
   const emailAddress = "hello@weekendlabs.in";
   const emailSubject = "Inquiry About Weekend Labs Services";
