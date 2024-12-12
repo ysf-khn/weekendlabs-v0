@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero/Hero";
 import Testimonials from "../components/Testimonials/Testimonials";
 
-const page = () => {
+const Page = () => {
   return (
     <>
       <Hero />
@@ -18,4 +18,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
