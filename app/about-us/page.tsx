@@ -32,8 +32,8 @@ const page = () => {
 
       <section className=" text-[6rem] font-bold p-10 my-6">
         From stunning Shopify stores and impactful UI/UX design to logo creation
-        and SEO strategies, Weekend Labs' portfolio caters to the diverse needs
-        of businesses aiming to showcase, sell, and scale.
+        and SEO strategies, Weekend Labs&apos; portfolio caters to the diverse
+        needs of businesses aiming to showcase, sell, and scale.
       </section>
 
       <Values />
