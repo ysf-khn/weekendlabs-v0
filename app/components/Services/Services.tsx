@@ -36,7 +36,7 @@ export default function Services() {
     requestAnimationFrame(raf);
   });
   return (
-    <main ref={container} className="relative mt-[20vh]">
+    <main ref={container} className="relative pt-[20vh] bg-black">
       <motion.h1
         initial="hidden"
         whileInView="visible"
@@ -48,7 +48,7 @@ export default function Services() {
             key={index}
             custom={index}
             variants={titleVariants}
-            className="inline-block"
+            className="inline-block text-[1.75rem] md:text-[4vw]"
             style={{ display: "inline-block" }}
           >
             {letter === " " ? "\u00A0" : letter}

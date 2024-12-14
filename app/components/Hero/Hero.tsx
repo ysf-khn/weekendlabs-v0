@@ -3,7 +3,11 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import gsap from "gsap";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
+// import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
+import { Velustro } from "uvcanvas";
+
+import Link from "next/link";
+import TransitionLink from "@/app/Utilities/TransitionLink";
 
 // const View = dynamic(
 //   () => import("@/app/components/canvas/View").then((mod) => mod.View),
@@ -143,7 +147,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroSectionRef} className="hero-body">
+    <section ref={heroSectionRef} className="hero-body" id="hero">
       {isPreloaderVisible && (
         <div className="hero-pre-loader">
           <div className="hero-pre-loader-container">
@@ -200,7 +204,10 @@ const Hero = () => {
       )}
 
       {/* Rest of your existing content */}
-      <ShaderGradientCanvas
+      {/* @ts-ignore */}
+      <Velustro className="animated-background" />
+
+      {/* <ShaderGradientCanvas
         style={{
           position: "absolute",
           top: 0,
@@ -212,7 +219,7 @@ const Hero = () => {
           control="query"
           urlString="https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=1.2&cAzimuthAngle=180&cDistance=3.6&cPolarAngle=90&cameraZoom=1&color1=%2300E96F&color2=%234F76F6&color3=%231F2B37&destination=onCanvas&embedMode=off&envPreset=city&format=gif&fov=45&frameRate=10&gizmoHelper=hide&grain=on&lightType=3d&pixelDensity=1.5&positionX=-1.4&positionY=0&positionZ=0&range=enabled&rangeEnd=40&rangeStart=0&reflection=0.1&rotationX=0&rotationY=10&rotationZ=50&shader=defaults&toggleAxis=false&type=waterPlane&uAmplitude=0&uDensity=1.1&uFrequency=5.5&uSpeed=0.3&uStrength=4.2&uTime=0&wireframe=false&zoomOut=false"
         />
-      </ShaderGradientCanvas>
+      </ShaderGradientCanvas> */}
 
       {/* @ts-ignore */}
       {/* <View>
@@ -236,7 +243,14 @@ const Hero = () => {
               alt="Weekend Labs Logo"
             />
           </div>
-          {/* <div className="hero-menu-icon">Menu</div> */}
+
+          <div className="space-x-7 lowercase">
+            <Link href="/">Services</Link>
+            <TransitionLink href="/about-us">About</TransitionLink>
+            <Link href="/">Projects</Link>
+            <Link href="/">Testimonials</Link>
+            <Link href="/">Contact</Link>
+          </div>
         </div>
         <div className="hero-site-header">
           <div className="hero-row">

@@ -9,7 +9,7 @@ export const links = [
   },
   {
     title: "About",
-    href: "/",
+    href: "/about-us",
   },
   {
     title: "Contact",

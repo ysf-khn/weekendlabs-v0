@@ -31,7 +31,8 @@ const Card = ({
         style={{
           backgroundColor: color,
           scale,
-          top: `calc(-5vh + ${i * 25}px)`,
+          // top: `calc(-5vh + ${i * 25}px)`,
+          top: `calc(0vh + ${i * 10}px)`,
           color: textColor,
         }}
         className={styles.card}

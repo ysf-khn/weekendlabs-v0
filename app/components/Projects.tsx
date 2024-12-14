@@ -99,12 +99,12 @@ const Projects = () => {
   };
 
   return (
-    <section className="mt-[20vh] pt-8">
+    <section className=" relative pt-[20vh] bg-black">
       {animateLetters("Recent Client Projects", 0)}
       {animateLetters("&", 0.6)}
       {animateLetters("templates", 1.8)}
-      <main className=" flex items-center justify-center mt-[12vh]">
-        <div className="w-[100%] md:w-[1000px] flex flex-col justify-center items-center">
+      <main className=" flex items-center justify-center mt-[12vh] bg-black">
+        <div className="w-11/12 md:w-[1000px] flex flex-col justify-center items-center">
           {projects.map((project, index) => {
             return (
               <MemoizedProject

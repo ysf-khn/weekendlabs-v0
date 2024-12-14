@@ -124,11 +124,12 @@
 
 @media (max-width: 480px) {
   .cardContainer .card {
-    height: 680px;
+    height: 80vh;
     width: 90%;
     padding: 20px;
     border-radius: 15px;
-    top: 0;
+    /* top: 0; */
+    margin-top: 0rem;
   }
 
   .cardContainer .card h2 {
@@ -159,7 +160,7 @@
     position: relative;
     margin-top: 1.5rem;
     width: 100%;
-    height: 350px;
+    height: 30vh;
     border-radius: 10px;
   }
 }

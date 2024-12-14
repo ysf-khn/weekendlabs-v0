@@ -43,14 +43,14 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="mt-[20vh] pt-8 bg-transparent">
+    <section className=" pt-[6vh] relative bg-black md:pt-[20vh]">
       {animateLetters("Client Testimonials", 0)}
 
       <main className="mt-[12vh] w-4/5 mx-auto">
         {testimonials.map((testimonial, index) => {
           const { name, organisation, review, imageSrc } = testimonial;
           return (
-            <div className="mb-[15vh]" key={index}>
+            <div className="pb-[15vh]" key={index}>
               <div key={index} className="">
                 <Image
                   src={imageSrc}
@@ -59,7 +59,7 @@ const Testimonials = () => {
                   width={180}
                   className={`${
                     index === 0 ? "float-left mr-4" : "float-right ml-4"
-                  }`}
+                  } mb-3 rounded-t-lg rounded-b-lg`}
                 />
               </div>
               <p
