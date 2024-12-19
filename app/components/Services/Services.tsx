@@ -36,7 +36,7 @@ export default function Services() {
     requestAnimationFrame(raf);
   });
   return (
-    <main ref={container} className="relative pt-[20vh] bg-black">
+    <main ref={container} className="relative pt-[20vh] bg-black" id="services">
       <motion.h1
         initial="hidden"
         whileInView="visible"

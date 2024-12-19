@@ -9,6 +9,7 @@ export default function Footer() {
     <div
       className=" bg-brandGreen text-black relative h-[600px] md:h-[500px]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+      id="footer"
     >
       <div className="relative h-[calc(100vh+850px)] -top-[130vh]  md:h-[calc(100vh+500px)] md:-top-[100vh]">
         <div className="h-[550px] md:h-[500px] sticky top-[calc(100vh-550px)] md:top-[calc(100vh-500px)]">
@@ -46,7 +47,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Instagram
+                    Instagram &#8599;
                   </a>
                 </div>
               </div>
@@ -54,7 +55,7 @@ export default function Footer() {
 
             <div className="flex justify-center items-center absolute bottom-2 left-0 right-0 p-4 md:p-0">
               <Image
-                src="/LogoTextWhite.svg"
+                src="/logoWhiteBlackDot.svg"
                 alt="Weekend Labs Logo Big"
                 height={1200}
                 width={1200}

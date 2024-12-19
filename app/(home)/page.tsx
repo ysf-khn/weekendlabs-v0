@@ -13,7 +13,7 @@ export default function Page() {
       <Services />
       <Projects />
       <Testimonials />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

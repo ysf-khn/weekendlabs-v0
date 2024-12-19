@@ -35,7 +35,7 @@ export default function Project({
         className="lg:hidden"
       />
 
-      <h2>{title}</h2>
+      <h2 className="">{title}</h2>
       <div className="projectSeparator"></div>
       <div>
         <p className="text-xl">{type}</p>

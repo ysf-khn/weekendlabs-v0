@@ -35,7 +35,7 @@ const projects = [
     type: "Automation",
     status: "Completed",
     src: "/projects/marketingautomation.webp",
-    link: "",
+    link: "/#projects",
     color: "#FFC300",
   },
   {
@@ -52,7 +52,7 @@ const projects = [
     type: "Website",
     status: "In Progress",
     src: "/projects/metalberg.jpeg",
-    link: "#",
+    link: "/#projects",
     color: "#FF5733",
   },
 ];
@@ -99,7 +99,7 @@ const Projects = () => {
   };
 
   return (
-    <section className=" relative pt-[20vh] bg-black">
+    <section className=" pt-[20vh] bg-black" id="projects">
       {animateLetters("Recent Client Projects", 0)}
       {animateLetters("&", 0.6)}
       {animateLetters("templates", 1.8)}
@@ -120,9 +120,9 @@ const Projects = () => {
             );
           })}
         </div>
-        <div className="hidden lg:block">
-          <Modal modal={modal} projects={projects} />
-        </div>
+        {/* <div className=""> */}
+        <Modal modal={modal} projects={projects} />
+        {/* </div> */}
       </main>
     </section>
   );

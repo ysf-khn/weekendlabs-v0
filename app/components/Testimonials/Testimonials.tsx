@@ -18,6 +18,19 @@ const Testimonials = () => {
     }),
   };
 
+  const testimonialVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 25,
+      },
+    },
+  };
+
   const animateLetters = (text: string, delay: number = 0) => {
     return (
       <motion.h1
@@ -43,15 +56,33 @@ const Testimonials = () => {
   };
 
   return (
-    <section className=" pt-[6vh] relative bg-black md:pt-[20vh]">
+    <section
+      className="pt-[6vh] relative bg-black md:pt-[20vh]"
+      id="testimonials"
+    >
       {animateLetters("Client Testimonials", 0)}
 
-      <main className="mt-[12vh] w-4/5 mx-auto">
+      <motion.main
+        className="mt-[12vh] w-4/5 mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }} // Trigger when the section is 20% in view
+      >
         {testimonials.map((testimonial, index) => {
           const { name, organisation, review, imageSrc } = testimonial;
           return (
-            <div className="pb-[15vh]" key={index}>
-              <div key={index} className="">
+            <motion.div
+              key={index}
+              className="pb-[15vh]"
+              variants={testimonialVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }} // Trigger animation when the testimonial comes into view
+              transition={{
+                delay: index * 0.3, // Add delay for each item to stagger
+              }}
+            >
+              <div>
                 <Image
                   src={imageSrc}
                   alt={`${name}`}
@@ -76,11 +107,11 @@ const Testimonials = () => {
               >
                 {organisation}
               </p>
-              <p className=" text-xl md:text-4xl">&quot;{review}&quot;</p>
-            </div>
+              <p className="text-xl md:text-4xl">&quot;{review}&quot;</p>
+            </motion.div>
           );
         })}
-      </main>
+      </motion.main>
     </section>
   );
 };

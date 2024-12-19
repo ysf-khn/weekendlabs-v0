@@ -68,7 +68,7 @@ export const services = [
     id: "social",
     title: "Struggling to grow on social media?",
     description:
-      "Our social media marketing strategies increase engagement and drive results (Coming soon).",
+      "Our social media marketing strategies increase engagement and drive results.",
     image: "/services/socialImage1.jpg",
     color: "#DAF5FA",
     textColor: "black",
