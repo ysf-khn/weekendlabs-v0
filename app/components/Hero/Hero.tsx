@@ -61,6 +61,7 @@ const Hero = () => {
 
     return () => {
       if (heroSectionRef.current) {
+        // @ts-ignore
         observer.unobserve(heroSectionRef.current);
       }
     };
