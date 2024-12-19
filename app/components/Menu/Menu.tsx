@@ -84,7 +84,7 @@ const Menu = () => {
         </div>
         <div className="flex items-center justify-between gap-4">
           <button
-            className=" relative bg-brandGreen text-black top-0 px-4 py-2 rounded-md w-fit"
+            className="hidden md:block relative bg-brandGreen text-black top-0 px-4 py-2 rounded-md w-fit"
             onClick={toggleModal}
           >
             <span className="absolute -right-1 -top-1 flex h-3 w-3">

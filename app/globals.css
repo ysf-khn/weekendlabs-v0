@@ -137,15 +137,7 @@ body {
   width: 100vw;
   margin: auto;
   z-index: 10000;
-
   background: black;
-
-  /* background: rgba(255, 255, 255, 0.4); 
-  backdrop-filter: blur(5px); 
-  border-radius: 48px;
- 
-  background-clip: padding-box;
-  -webkit-backdrop-filter: blur(5px);  */
 }
 
 .menuBar a,
@@ -876,8 +868,20 @@ body {
     .hero-pre-loader-btn
     .hero-header */
 
+  .menuOverlayBar {
+    padding: 2em 6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 10000;
+  }
+
   .menuBar {
-    padding: 1em 1em;
+    padding: 2em 6em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -886,25 +890,8 @@ body {
     left: 0;
     width: 100vw;
     margin: auto;
-    z-index: 1;
-
-    background: rgba(255, 255, 255, 0.2); /* Transparent white background */
-    backdrop-filter: blur(5px); /* Blurring effect */
-    border-radius: 0px;
-    /* Optional additional properties */
-    background-clip: padding-box;
-    -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
-  }
-
-  .menuOverlayBar {
-    padding: 1em 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
+    z-index: 10000;
+    background: black;
   }
 
   .menuOverlay {
@@ -913,8 +900,9 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: 4em 1em 1em 1em;
+    padding: 4em 6em;
     background: #00e96f;
+    z-index: 10000;
     display: flex;
     clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   }
