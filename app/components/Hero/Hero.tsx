@@ -1,12 +1,12 @@
 "use client";
 import { BackgroundGradientAnimation } from "@/app/Utilities/bggradientanimation";
+import { usePreloader } from "@/app/Utilities/PreLoaderContext";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import gsap from "gsap";
 import React, { useEffect, useRef, useState } from "react";
-import { Velustro } from "uvcanvas";
 
 const Hero = () => {
-  const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
+  const { isPreloaderVisible, setIsPreloaderVisible } = usePreloader();
   const [isInView, setIsInView] = useState(false);
   const heroSectionRef = useRef<HTMLElement>(null);
 
@@ -166,58 +166,137 @@ const Hero = () => {
   return (
     <>
       {isPreloaderVisible && (
-        <div className="hero-pre-loader">
-          <div className="hero-pre-loader-container">
-            <div className="hero-pre-loader-header">
-              <div className="hero-header flex">
-                <h1>Transform your online&nbsp;</h1>
-                <h1 data-text="presence">presence</h1>
-                <div className="hero-header-wrapper"></div>
-              </div>
+        <>
+          <div className="hidden md:block">
+            <div className="hero-pre-loader">
+              <div className="hero-pre-loader-container">
+                <div className="hero-pre-loader-header">
+                  <div className="hero-header flex">
+                    <h1>Transform your online&nbsp;</h1>
+                    <h1 data-text="presence">presence</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
 
-              <div className="hero-header flex">
-                <h1>with&nbsp;</h1>
-                <h1 data-text="stunning Websites">stunning Websites</h1>
-                <div className="hero-header-wrapper"></div>
-              </div>
+                  <div className="hero-header flex">
+                    <h1>with&nbsp;</h1>
+                    <h1 data-text="stunning Websites">stunning Websites</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
 
-              <div className="hero-header flex">
-                <h1>seamless&nbsp;</h1>
-                <h1 data-text="Ecommerce stores">Ecommerce stores</h1>
-                <div className="hero-header-wrapper"></div>
-              </div>
+                  <div className="hero-header flex">
+                    <h1>seamless&nbsp;</h1>
+                    <h1 data-text="Ecommerce stores">Ecommerce stores</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
 
-              <div className="hero-header flex">
-                <h1>custom&nbsp;</h1>
-                <h1 data-text="Logos">Logos</h1>
-                <h1>&nbsp;and&nbsp;</h1>
-                <h1 data-text="Designs">Designs</h1>
-                <div className="hero-header-wrapper"></div>
-              </div>
+                  <div className="hero-header flex">
+                    <h1>custom&nbsp;</h1>
+                    <h1 data-text="Logos">Logos</h1>
+                    <h1>&nbsp;and&nbsp;</h1>
+                    <h1 data-text="Designs">Designs</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
 
-              <div className="hero-header flex">
-                <h1>that capture your&nbsp;</h1>
-              </div>
+                  <div className="hero-header flex">
+                    <h1>that capture your&nbsp;</h1>
+                  </div>
 
-              <div className="hero-header flex">
-                <h1>Brand&apos;s&nbsp;</h1>
-                <h1 data-text="Essence">Essence</h1>
-                <h1>&nbsp;and&nbsp;</h1>
-                <h1 data-text="Drive Growth">Drive Growth</h1>
-                <div className="hero-header-wrapper"></div>
-              </div>
-            </div>
-            <div
-              className="hero-pre-loader-btn hover:scale-110 transition-all"
-              onClick={revealSite}
-            >
-              <div className="flex items-center space-x-2 bg-white text-black rounded-full p-4 animate-bounce">
-                Dive In
-                <ArrowRightIcon className="ml-2 w-5 h-5" />
+                  <div className="hero-header flex">
+                    <h1>Brand&apos;s&nbsp;</h1>
+                    <h1 data-text="Essence">Essence</h1>
+                    <h1>&nbsp;and&nbsp;</h1>
+                    <h1 data-text="Drive Growth">Drive Growth</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
+                </div>
+                <div
+                  className="hero-pre-loader-btn hover:scale-110 transition-all"
+                  onClick={revealSite}
+                >
+                  <div className="flex items-center space-x-2 bg-white text-black rounded-full p-4 animate-bounce">
+                    Dive In
+                    <ArrowRightIcon className="ml-2 w-5 h-5" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+
+          {/* //mobile pre-loader */}
+          <div className="md:hidden">
+            <div className="hero-pre-loader">
+              <div className="hero-pre-loader-container">
+                <div className="hero-pre-loader-header">
+                  <div className="hero-header flex">
+                    <h1>Transform </h1>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1>your online&nbsp;</h1>
+                    <h1 data-text="presence">presence</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1>with </h1>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1 data-text="Stunning Websites">Stunning Websites</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1>seamless </h1>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1 data-text="Ecommerce Stores">Ecommerce Stores</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1>custom </h1>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1 data-text="Logos">Logos</h1>
+                    <h1>&nbsp;and&nbsp;</h1>
+                    <h1 data-text="Designs">Designs</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1>that capture</h1>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1>your Brand&apos;s&nbsp;</h1>
+                    <h1 data-text="Essence">Essence</h1>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1>&nbsp;and&nbsp;</h1>
+                  </div>
+
+                  <div className="hero-header flex">
+                    <h1 data-text="Drive Growth">Drive Growth</h1>
+                    <div className="hero-header-wrapper"></div>
+                  </div>
+                </div>
+                <div
+                  className="hero-pre-loader-btn hover:scale-110 transition-all"
+                  onClick={revealSite}
+                >
+                  <div className="flex items-center space-x-2 bg-white text-black rounded-full p-4 animate-bounce">
+                    Dive In
+                    <ArrowRightIcon className="ml-2 w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
       )}
 
       <div className="hero-wrapper">

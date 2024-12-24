@@ -11,8 +11,8 @@ export default function Footer() {
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       id="footer"
     >
-      <div className="relative h-[calc(100vh+850px)] -top-[130vh]  md:h-[calc(100vh+500px)] md:-top-[100vh]">
-        <div className="h-[550px] md:h-[500px] sticky top-[calc(100vh-550px)] md:top-[calc(100vh-500px)]">
+      <div className="relative h-[calc(100vh+600px)] -top-[100vh]  md:h-[calc(100vh+500px)] md:-top-[100vh]">
+        <div className="h-[600px] md:h-[500px] sticky top-[calc(100vh-600px)] md:top-[calc(100vh-500px)]">
           <div className="p-4 text-3xl">
             <div className="md:flex justify-between">
               <div>

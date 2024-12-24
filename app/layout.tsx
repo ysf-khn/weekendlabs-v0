@@ -6,11 +6,12 @@ import { ModalProvider } from "./Utilities/ModalContext";
 import InquiryForm from "./components/InquiryForm.tsx/InquiryForm";
 import Footer from "./components/Footer";
 import SlideButton from "./components/SlideButton/SlideButton";
+import { PreloaderProvider } from "./Utilities/PreLoaderContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // Specify weights you want to use
-  variable: "--font-poppins", // Optional: for using CSS variables
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -27,15 +28,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        {/* <Navbar /> */}
-        <ModalProvider>
-          <Menu />
-          <SlideButton />
-          {children}
-          <Footer />
-
-          <InquiryForm />
-        </ModalProvider>
+        <PreloaderProvider>
+          <ModalProvider>
+            <Menu />
+            <SlideButton />
+            {children}
+            <Footer />
+            <InquiryForm />
+          </ModalProvider>
+        </PreloaderProvider>
       </body>
     </html>
   );

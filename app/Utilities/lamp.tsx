@@ -17,12 +17,24 @@ export function LampDemo() {
         }}
         className="mt-8 bg-gradient-to-br from-green-400 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
       >
-        <Image
-          src="/LogoTextWhite.svg"
-          height={500}
-          width={500}
-          alt="Weekend Labs Logo"
-        />
+        <div className="mb-4">We are</div>
+        <div className="hidden md:block">
+          <Image
+            src="/LogoTextWhite.svg"
+            height={500}
+            width={500}
+            alt="Weekend Labs Logo"
+          />
+        </div>
+
+        <div className="block md:hidden">
+          <Image
+            src="/LogoTextWhite.svg"
+            height={250}
+            width={250}
+            alt="Weekend Labs Logo"
+          />
+        </div>
       </motion.h1>
     </LampContainer>
   );
