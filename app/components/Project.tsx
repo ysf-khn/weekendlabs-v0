@@ -14,7 +14,7 @@ export default function Project({
   return (
     <a
       href={link}
-      target={link !== "#" ? "_blank" : ""}
+      target={link !== "/#projects" ? "_blank" : ""}
       rel="noopener noreferrer"
       aria-label={`Visit ${title} website`}
       onMouseEnter={() => {

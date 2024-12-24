@@ -15,17 +15,17 @@ export async function POST(req: Request) {
 
     // Send email notification
     const transporter = nodemailer.createTransport({
-      service: "gmail", // Replace with your email service
+      service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER, // Your email address
-        pass: process.env.EMAIL_PASS, // Your email password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     const mailOptions = {
       from: `"Weekend Labs" <${process.env.EMAIL_USER}>`,
       to: "hello@weekendlabs.in",
-      subject: "New Inquiry Received",
+      subject: `New Inquiry Received from ${body.fullName}`,
       text: `You have a new inquiry:
 
         Name: ${body.fullName}

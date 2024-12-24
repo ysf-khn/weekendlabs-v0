@@ -163,4 +163,16 @@
     height: 30vh;
     border-radius: 10px;
   }
+
+  .cardContainer:nth-child(3) .card .body {
+    gap: 0; /* Smaller gap */
+  }
+
+  .cardContainer:nth-child(3) .card .body .description {
+    margin-top: 0.25rem; /* Less margin */
+  }
+
+  .cardContainer:nth-child(3) .card .body .description p {
+    font-size: 16px; /* Smaller font size */
+  }
 }

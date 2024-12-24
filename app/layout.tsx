@@ -5,6 +5,7 @@ import Menu from "./components/Menu/Menu";
 import { ModalProvider } from "./Utilities/ModalContext";
 import InquiryForm from "./components/InquiryForm.tsx/InquiryForm";
 import Footer from "./components/Footer";
+import SlideButton from "./components/SlideButton/SlideButton";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
         {/* <Navbar /> */}
         <ModalProvider>
           <Menu />
+          <SlideButton />
           {children}
           <Footer />
 

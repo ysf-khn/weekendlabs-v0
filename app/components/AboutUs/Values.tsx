@@ -8,17 +8,17 @@ import { ChartBarIcon } from "@heroicons/react/20/solid";
 
 export default function Values() {
   return (
-    <section className="bg-black py-24 px-10">
-      <div className="grid grid-rows-8 grid-cols-3 gap-8 text-black">
-        <div className="row-span-4 text-[5rem] font-semibold p-8 text-white">
+    <section className="bg-black py-24 px-4 md:px-10">
+      <div className="grid md:grid-rows-8 md:grid-cols-3 gap-8 text-black">
+        <div className="row-span-4 text-[2rem] md:text-[5rem] font-semibold p-2 md:p-8 text-white">
           Our Values
         </div>
-        <div className=" bg-brandGreen p-8 rounded-3xl row-span-4">
+        <div className=" bg-brandGreen p-4 md:p-8 rounded-3xl row-span-4">
           <p className="bg-black rounded-xl p-3 w-fit">
             <ShieldCheckIcon height={50} width={50} className="text-white" />
           </p>{" "}
-          <p className="font-semibold text-5xl mt-5">Integrity</p>
-          <p className="text-2xl mt-5 font-semibold">
+          <p className="font-semibold text-3xl md:text-5xl mt-5">Integrity</p>
+          <p className="text-xl md:text-2xl mt-5 font-semibold">
             Building trust through honesty, transparency, and unwavering
             commitment to ethical practices.
           </p>
@@ -28,8 +28,8 @@ export default function Values() {
           <p className="bg-black rounded-xl p-3 w-fit">
             <ChartBarIcon height={50} width={50} className="text-white" />
           </p>
-          <p className="font-semibold text-5xl mt-5">Growth</p>
-          <p className="text-2xl mt-5 font-semibold">
+          <p className="font-semibold text-3xl md:text-5xl mt-5">Growth</p>
+          <p className="text-xl md:text-2xl mt-5 font-semibold">
             Fostering continuous progress to empower businesses and individuals
             to achieve their highest potential.
           </p>
@@ -38,8 +38,8 @@ export default function Values() {
           <p className="bg-black rounded-xl p-3 w-fit">
             <RocketLaunchIcon height={50} width={50} className="text-white" />
           </p>
-          <p className="font-semibold text-5xl mt-5">Innovation</p>
-          <p className="text-2xl mt-5 font-semibold">
+          <p className="font-semibold text-3xl md:text-5xl mt-5">Innovation</p>
+          <p className="text-xl md:text-2xl mt-5 font-semibold">
             Driving creative solutions and pioneering ideas that redefine
             boundaries and inspire meaningful change.
           </p>
@@ -48,8 +48,8 @@ export default function Values() {
           <p className="bg-black rounded-xl p-3 w-fit">
             <TrophyIcon height={50} width={50} className="text-white" />
           </p>{" "}
-          <p className="font-semibold text-5xl mt-5">Excellence</p>
-          <p className="text-2xl mt-5 font-semibold">
+          <p className="font-semibold text-3xl md:text-5xl mt-5">Excellence</p>
+          <p className="text-xl md:text-2xl mt-5 font-semibold">
             Delivering top-notch quality and results that consistently exceed
             expectations and set new benchmarks.
           </p>
@@ -58,8 +58,8 @@ export default function Values() {
           <p className="bg-black rounded-xl p-3 w-fit">
             <AcademicCapIcon height={50} width={50} className="text-white" />
           </p>
-          <p className="font-semibold text-5xl mt-5">Learning</p>
-          <p className="text-2xl mt-5 font-semibold">
+          <p className="font-semibold text-3xl md:text-5xl mt-5">Learning</p>
+          <p className="text-xl md:text-2xl mt-5 font-semibold">
             Embracing curiosity and growth by acquiring knowledge to refine
             skills and drive innovation.
           </p>

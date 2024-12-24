@@ -120,9 +120,9 @@ const Projects = () => {
             );
           })}
         </div>
-        {/* <div className=""> */}
-        <Modal modal={modal} projects={projects} />
-        {/* </div> */}
+        <div className="hidden md:block">
+          <Modal modal={modal} projects={projects} />
+        </div>
       </main>
     </section>
   );

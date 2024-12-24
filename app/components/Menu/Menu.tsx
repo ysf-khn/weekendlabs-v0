@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useModal } from "@/app/Utilities/ModalContext";
+import EmailContactLink from "../EmailContactLink";
 const menuLinks = [
   {
     path: "/#hero",
@@ -94,7 +95,7 @@ const Menu = () => {
             Get Started
           </button>
           <button
-            className="menuOpen border border-brandGreen rounded-md px-4 py-2"
+            className="menuOpen border border-white rounded-md px-4 py-2"
             onClick={toggleMenu}
           >
             <p>Menu</p>
@@ -134,22 +135,25 @@ const Menu = () => {
           </div>
           <div className="menuInfo">
             <div className="menuInfoCol">
-              <a href="#">X &#8599;</a>
+              {/* <a href="#">X &#8599;</a> */}
               <a
                 href="https://instagram.com/weekend_labs"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="underline decoration-white"
               >
                 Instagram &#8599;
               </a>
             </div>
             <div className="menuInfoCol">
-              <p>hello@weekendlabs.in</p>
+              <div className="underline decoration-white">
+                <EmailContactLink />
+              </div>
             </div>
           </div>
         </div>
         <div className="menuPreview">
-          <p>everything software.</p>
+          <p className="">everything software.</p>
         </div>
       </div>
     </div>

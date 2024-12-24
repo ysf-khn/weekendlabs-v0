@@ -243,7 +243,7 @@ const Hero = () => {
 
                   <div className="hero-row">
                     <div className="hero-header-row">
-                      logos<span>that</span>define
+                      logos <span>that</span>define
                     </div>
                   </div>
 

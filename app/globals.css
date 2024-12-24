@@ -869,7 +869,7 @@ body {
     .hero-header */
 
   .menuOverlayBar {
-    padding: 2em 6em;
+    padding: 1em 1.25em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -881,7 +881,7 @@ body {
   }
 
   .menuBar {
-    padding: 2em 6em;
+    padding: 1em 1.25em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -900,7 +900,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: 4em 6em;
+    padding: 5em 1em 1em 1em;
     background: #00e96f;
     z-index: 10000;
     display: flex;
@@ -992,30 +992,44 @@ body {
     }
   }
 
+  .hero-text-content {
+    position: absolute;
+    top: 12vh;
+    left: 0;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* width: 100vw; */
+    /* padding: 0 1em 0 1rem; */
+  }
+
   .hero-website-content {
     padding-top: 0;
     /* Adjust for smaller screens */
-    height: 100vh;
+    height: 90vh;
+    /* width: 100vw; */
   }
 
   .hero-site-header {
-    top: 12%;
+    top: 0;
     transform: translateY(0);
-    height: 72vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     /* align-items: center; */
     text-align: center;
   }
-
+  /* 
   .hero-row {
-    font-size: 8vw; /* Increase font size for very small devices */
-  }
+    font-size: 8vw; /* Increase font size for very small devices 
+  } */
 
   .hero-header-row {
-    font-size: 1.8em; /* Smaller header size */
-    line-height: 105%;
+    font-size: 1.75em; /* Smaller header size */
+    line-height: 100%;
+    /* width: 100vw; */
   }
 
   .hero-header h1 {
