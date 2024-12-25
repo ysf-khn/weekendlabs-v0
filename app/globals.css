@@ -343,6 +343,24 @@ body {
   margin: 0 auto;
 }
 
+/* Add this to your global CSS file */
+.lock-scroll {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+}
+
+/* Optional: If you want to prevent iOS bounce effect */
+.lock-scroll body {
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+}
+
 .concat {
   display: flex;
 }
@@ -859,7 +877,7 @@ body {
   .hero-pre-loader {
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: #0a0a0a;
     color: #e5e3dc;
     display: flex;
@@ -1140,17 +1158,17 @@ body {
     margin-bottom: 3rem;
   }
 
-  .project:hover {
+  /* .project:hover {
     opacity: 0.5;
-  }
+  } */
 
-  .project:hover h2 {
+  /* .project:hover h2 {
     transform: translateX(-10px);
   }
 
   .project:hover p {
     transform: translateX(10px);
-  }
+  } */
 
   .project h2 {
     font-size: 2rem;

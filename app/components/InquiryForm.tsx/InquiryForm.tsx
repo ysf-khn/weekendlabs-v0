@@ -3,37 +3,83 @@
 import { useModal } from "@/app/Utilities/ModalContext";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRightIcon } from "@heroicons/react/16/solid";
+import {
+  ChevronRightIcon,
+  ChevronUpIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/16/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 type FormData = {
   fullName: string;
   email: string;
   phone?: string;
-  service: string;
+  services: string[];
   budget?: string;
 };
 
+const serviceOptions = [
+  { value: "website", label: "Website" },
+  { value: "ecommerce-store", label: "Ecommerce Store" },
+  { value: "custom-software", label: "Custom Software / App" },
+  { value: "logo-branding", label: "Logo / Branding" },
+  { value: "design", label: "UI/UX / Graphic Design" },
+  { value: "marketing", label: "Social Media Marketing" },
+  { value: "seo", label: "SEO" },
+  { value: "automation", label: "Automation" },
+  { value: "product-catalog", label: "Product Catalog" },
+];
+
 const InquiryForm = () => {
   const { isModalOpen, toggleModal } = useModal();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormData>();
+    setValue,
+    watch,
+  } = useForm<FormData>({
+    defaultValues: {
+      services: [],
+    },
+  });
   const [submissionStatus, setSubmissionStatus] = useState<
     "idle" | "submitting" | "submitted"
   >("idle");
+  const selectedServices = watch("services") || [];
 
-  // Reset form when modal closes
   useEffect(() => {
     if (!isModalOpen) {
       reset();
       setSubmissionStatus("idle");
     }
   }, [isModalOpen, reset]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleServiceToggle = (value: string) => {
+    const currentServices = selectedServices;
+    const newServices = currentServices.includes(value)
+      ? currentServices.filter((service) => service !== value)
+      : [...currentServices, value];
+    setValue("services", newServices);
+  };
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
@@ -47,8 +93,7 @@ const InquiryForm = () => {
       if (response.ok) {
         console.log("Inquiry submitted successfully!");
         setSubmissionStatus("submitted");
-        // Don't close the modal immediately to show the success state
-        setTimeout(toggleModal, 2500); // Close after 2 seconds
+        setTimeout(toggleModal, 2500);
       } else {
         console.error("Failed to submit inquiry.");
         setSubmissionStatus("idle");
@@ -63,12 +108,6 @@ const InquiryForm = () => {
     reset();
     setSubmissionStatus("idle");
     toggleModal();
-  };
-
-  const modalVariants = {
-    hidden: { y: "100%", opacity: 0 },
-    visible: { y: "10%", opacity: 1 },
-    exit: { y: "100%", opacity: 0 },
   };
 
   const getHeaderText = () => {
@@ -122,10 +161,9 @@ const InquiryForm = () => {
         >
           <motion.div
             className="bg-brandGreen text-black w-full h-screen md:h-[97vh] rounded-t-2xl md:rounded-t-[3rem] p-6 relative"
-            variants={modalVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
+            initial={{ y: "100%" }}
+            animate={{ y: "10%" }}
+            exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
           >
             <button
@@ -136,7 +174,7 @@ const InquiryForm = () => {
             </button>
 
             <div className="flex flex-col md:flex-row items-center justify-between md:px-24 py-4 md:gap-[5rem]">
-              <div className="text-lg md:text-[3vw] flex-1">
+              <div className="text-lg md:text-[3vw] md:leading-[3.5rem] flex-1">
                 {getHeaderText()}
               </div>
 
@@ -154,12 +192,11 @@ const InquiryForm = () => {
                   onSubmit={handleSubmit(onSubmit)}
                   className="text-white overflow-y-auto md:w-3/4"
                 >
-                  {/* Form fields remain the same */}
                   <div className="mb-2 md:mb-4">
                     <input
                       type="text"
                       id="fullName"
-                      placeholder="your name"
+                      placeholder="Your Name"
                       {...register("fullName", {
                         required: "Full Name is required",
                       })}
@@ -178,7 +215,7 @@ const InquiryForm = () => {
                     <input
                       type="email"
                       id="email"
-                      placeholder="your email"
+                      placeholder="Your Email"
                       {...register("email", {
                         required: "Email is required",
                         pattern: {
@@ -201,42 +238,59 @@ const InquiryForm = () => {
                     <input
                       type="tel"
                       id="phone"
-                      placeholder="your phone (optional)"
+                      placeholder="Your Phone (optional)"
                       {...register("phone")}
                       className="placeholder:text-white w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black"
                     />
                   </div>
 
-                  <div className="mb-2 md:mb-4">
-                    <select
-                      id="service"
-                      {...register("service", {
-                        required: "Please select a service",
-                      })}
-                      className={`placeholder:text-white w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black cursor-pointer ${
-                        errors.service
-                          ? "border border-red-500"
-                          : "border-gray-300"
-                      }`}
+                  <div className="mb-2 md:mb-4 relative" ref={dropdownRef}>
+                    <div
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="bg-black rounded-md px-3 md:px-6 py-4 cursor-pointer flex justify-between items-center"
                     >
-                      <option value="" disabled selected>
-                        service required
-                      </option>
-                      <option value="website">Website</option>
-                      <option value="ecommerce-store">Ecommerce Store</option>
-                      <option value="custom-software">
-                        Custom Software / App
-                      </option>
-                      <option value="logo-branding">Logo / Branding</option>
-                      <option value="design">UI/UX / Graphic Design</option>
-                      <option value="marketing">Social Media Marketing</option>
-                      <option value="seo">SEO</option>
-                      <option value="automation">Automation</option>
-                      <option value="product-catalog">Product Catalog</option>
-                    </select>
-                    {errors.service && (
+                      <span
+                        className={`${
+                          selectedServices.length === 0
+                            ? "text-gray-400"
+                            : "text-white"
+                        }`}
+                      >
+                        {selectedServices.length === 0
+                          ? "Select Services"
+                          : `${selectedServices.length} service${
+                              selectedServices.length > 1 ? "s" : ""
+                            } selected`}
+                      </span>
+                      {isDropdownOpen ? (
+                        <ChevronUpIcon className="h-5 w-5" />
+                      ) : (
+                        <ChevronDownIcon className="h-5 w-5" />
+                      )}
+                    </div>
+
+                    {isDropdownOpen && (
+                      <div className="absolute z-10 w-full mt-1 bg-black rounded-md shadow-lg">
+                        {serviceOptions.map((option) => (
+                          <label
+                            key={option.value}
+                            className="flex items-center space-x-2 px-3 py-2 hover:bg-gray-800 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              value={option.value}
+                              checked={selectedServices.includes(option.value)}
+                              onChange={() => handleServiceToggle(option.value)}
+                              className="h-4 w-4"
+                            />
+                            <span className="text-white">{option.label}</span>
+                          </label>
+                        ))}
+                      </div>
+                    )}
+                    {errors.services && (
                       <p className="text-red-500 text-sm mt-1">
-                        {errors.service.message}
+                        Please select at least one service
                       </p>
                     )}
                   </div>
@@ -248,7 +302,7 @@ const InquiryForm = () => {
                       className="placeholder:text-white w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black cursor-pointer"
                     >
                       <option value="" disabled selected>
-                        budget (optional)
+                        Budget (optional)
                       </option>
                       <option value="<25000">&lt; ₹25,000</option>
                       <option value="25000-50000">₹25,000 - ₹50,000</option>

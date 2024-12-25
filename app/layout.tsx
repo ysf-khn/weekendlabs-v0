@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Figtree } from "next/font/google";
 import "./globals.css";
 import Menu from "./components/Menu/Menu";
 import { ModalProvider } from "./Utilities/ModalContext";
@@ -15,6 +15,13 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-figtree",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Weekend Labs",
   description: "Everything Software",
@@ -27,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} ${figtree.variable} antialiased`}>
         <PreloaderProvider>
           <ModalProvider>
             <Menu />

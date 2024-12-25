@@ -38,7 +38,7 @@ const Testimonials = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 1 }}
         transition={{ delay }}
-        className="text-[1.5rem] md:text-[4vw] font-bold uppercase text-center mb-2 overflow-hidden flex justify-center"
+        className="font-figtree text-[1.5rem] md:text-[4vw] font-bold uppercase text-center mb-2 overflow-hidden flex justify-center"
       >
         {text.split("").map((letter, index) => (
           <motion.span
@@ -57,7 +57,7 @@ const Testimonials = () => {
 
   return (
     <section
-      className="pt-[6vh] relative bg-black md:pt-[20vh]"
+      className="pt-[6vh] relative bg-black text-white md:pt-[20vh]"
       id="testimonials"
     >
       {animateLetters("Client Testimonials", 0)}
@@ -107,7 +107,10 @@ const Testimonials = () => {
               >
                 {organisation}
               </p>
-              <p className="text-xl md:text-4xl">&quot;{review}&quot;</p>
+              <p className="md:hidden text-lg text-justify">
+                &quot;{review}&quot;
+              </p>
+              <p className="hidden md:block text-4xl">&quot;{review}&quot;</p>
             </motion.div>
           );
         })}

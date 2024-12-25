@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useModal } from "@/app/Utilities/ModalContext";
 import EmailContactLink from "../EmailContactLink";
+import AnimatedButton from "@/app/Utilities/AnimatedButton";
 const menuLinks = [
   {
     path: "/#hero",
@@ -80,25 +81,23 @@ const Menu = () => {
               height={150}
               width={150}
               alt="Weekend Labs Logo"
+              priority={false}
             />
           </Link>
         </div>
         <div className="flex items-center justify-between gap-4">
-          <button
-            className="hidden md:block relative bg-brandGreen text-black top-0 px-4 py-2 rounded-md w-fit"
-            onClick={toggleModal}
-          >
-            <span className="absolute -right-1 -top-1 flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandGreen opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-brandDark"></span>
-            </span>
-            Get Started
-          </button>
-          <button
+          <AnimatedButton toggleModal={toggleModal} />
+          {/* <button
             className="menuOpen border border-white rounded-md px-4 py-2"
             onClick={toggleMenu}
           >
             <p>Menu</p>
+          </button> */}
+          <button
+            className="menuOpen text-red hover:before:bg-redborder-red-500 relative overflow-hidden border border-white rounded-md bg-black px-4 py-2 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-none hover:before:left-0 hover:before:w-full"
+            onClick={toggleMenu}
+          >
+            <span className="relative z-10">Menu</span>
           </button>
         </div>
       </div>
@@ -111,6 +110,7 @@ const Menu = () => {
                 height={150}
                 width={150}
                 alt="Weekend Labs Logo"
+                priority={false}
               />
             </Link>
           </div>

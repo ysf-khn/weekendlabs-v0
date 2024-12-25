@@ -48,7 +48,7 @@ export default function Services() {
             key={index}
             custom={index}
             variants={titleVariants}
-            className="inline-block text-[1.75rem] md:text-[4vw]"
+            className="font-figtree inline-block text-[1.75rem] md:text-[4vw]"
             style={{ display: "inline-block" }}
           >
             {letter === " " ? "\u00A0" : letter}

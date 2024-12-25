@@ -60,6 +60,9 @@ const config: Config = {
         brandWhite: "#F9F9F9",
         brandDark: "#212120",
       },
+      fontFamily: {
+        figtree: ["var(--font-figtree)", "sans-serif"],
+      },
     },
   },
   plugins: [],

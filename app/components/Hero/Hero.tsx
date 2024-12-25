@@ -1,5 +1,6 @@
 "use client";
 import { BackgroundGradientAnimation } from "@/app/Utilities/bggradientanimation";
+import LoadingSpinner from "@/app/Utilities/LoadingSpinner";
 import { usePreloader } from "@/app/Utilities/PreLoaderContext";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import gsap from "gsap";
@@ -7,17 +8,33 @@ import React, { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
   const { isPreloaderVisible, setIsPreloaderVisible } = usePreloader();
+  const [isLoading, setIsLoading] = useState(true);
   const [isInView, setIsInView] = useState(false);
   const heroSectionRef = useRef<HTMLElement>(null);
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+  useEffect(() => {
+    // Hide loading spinner after a brief delay once preloader content is ready
+    const preloaderShown = sessionStorage.getItem("preloaderShown") === "true";
+    if (preloaderShown) {
+      setIsLoading(false);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      // }, 2400); // Adjust timing as needed
+    }, 2400); // Adjust timing as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const preloaderShown = sessionStorage.getItem("preloaderShown");
 
     if (preloaderShown) {
-      // If preloader was shown before, immediately set the final states
       setIsPreloaderVisible(false);
 
-      // Apply final styles immediately for returning visitors
       const headerRows = document.querySelectorAll(".hero-header-row");
       headerRows.forEach((row) => {
         if (row instanceof HTMLElement) {
@@ -77,33 +94,48 @@ const Hero = () => {
         },
       });
 
-      tl.fromTo(
-        ".hero-pre-loader-header h1",
-        {
-          opacity: 0,
-          y: 125,
-        },
-        {
+      // Different animations for mobile and desktop
+      if (isMobile) {
+        tl.fromTo(
+          ".hero-pre-loader-header h1",
+          {
+            opacity: 0,
+            y: 125,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.2, // Faster stagger for mobile
+            duration: 1, // Shorter duration for mobile
+            ease: "power2.out",
+          }
+        );
+
+        tl.to(".hero-pre-loader-btn", {
           opacity: 1,
-          y: 0,
-          stagger: 0.2,
-          duration: 1,
-          ease: "power2.out",
-        }
-      );
+          duration: 0.4, // Shorter duration for mobile
+        });
+      } else {
+        tl.fromTo(
+          ".hero-pre-loader-header h1",
+          {
+            opacity: 0,
+            y: 125,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,
+            duration: 1,
+            ease: "power2.out",
+          }
+        );
 
-      tl.to(".hero-pre-loader-btn", {
-        opacity: 1,
-        duration: 0.5,
-      });
-
-      gsap.to(".hero-cta-center", {
-        opacity: 1,
-        scale: 1,
-        ease: "power2.out",
-        duration: 0.6,
-        delay: 3,
-      });
+        tl.to(".hero-pre-loader-btn", {
+          opacity: 1,
+          duration: 0.5,
+        });
+      }
     }
   }, [isPreloaderVisible]);
 
@@ -111,7 +143,6 @@ const Hero = () => {
     if (typeof window !== "undefined") {
       const tl = gsap.timeline({
         onComplete: () => {
-          // Store the state after all animations are complete
           sessionStorage.setItem("preloaderShown", "true");
           document.body.classList.remove("lock-scroll");
           setIsPreloaderVisible(false);
@@ -165,6 +196,7 @@ const Hero = () => {
 
   return (
     <>
+      {isLoading && <LoadingSpinner />}
       {isPreloaderVisible && (
         <>
           <div className="hidden md:block">
@@ -343,13 +375,6 @@ const Hero = () => {
             </div>
           </div>
         </BackgroundGradientAnimation>
-
-        {/* <section ref={heroSectionRef} className="hero-body" id="hero">
-          <div className="grain-container">
-            <Velustro className="animated-background" />
-            <div className="grain-overlay"></div>
-          </div>
-        </section> */}
       </div>
     </>
   );

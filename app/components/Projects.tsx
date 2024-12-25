@@ -81,7 +81,7 @@ const Projects = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 1 }}
         transition={{ delay }}
-        className="text-[1.5rem] md:text-[4vw] font-bold uppercase text-center mb-2 overflow-hidden flex justify-center"
+        className="font-figtree text-[1.5rem] md:text-[4vw] font-bold uppercase text-center mb-2 overflow-hidden flex justify-center"
       >
         {text.split("").map((letter, index) => (
           <motion.span
