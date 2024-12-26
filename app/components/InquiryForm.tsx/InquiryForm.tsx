@@ -16,7 +16,7 @@ type FormData = {
   email: string;
   phone?: string;
   services: string[];
-  budget?: string;
+  // budget?: string;
 };
 
 const serviceOptions = [
@@ -183,14 +183,14 @@ const InquiryForm = () => {
                   href="https://wa.me/+919997035168"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-green-500 bg-black md:w-3/4 py-4 md:px-6 rounded-md block text-center"
+                  className="text-white bg-black md:w-3/4 py-4 md:px-6 rounded-md block text-center"
                 >
                   Contact Us on WhatsApp
                 </a>
                 <p className="text-center md:w-3/4 my-1 md:my-3">or</p>
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="text-white overflow-y-auto md:w-3/4"
+                  className="text-white md:w-3/4"
                 >
                   <div className="mb-2 md:mb-4">
                     <input
@@ -200,7 +200,7 @@ const InquiryForm = () => {
                       {...register("fullName", {
                         required: "Full Name is required",
                       })}
-                      className={`placeholder:text-white w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black border ${
+                      className={`w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black border placeholder:text-gray-400 ${
                         errors.fullName ? "border-red-500" : "border-none"
                       }`}
                     />
@@ -223,7 +223,7 @@ const InquiryForm = () => {
                           message: "Invalid email address",
                         },
                       })}
-                      className={`placeholder:text-white w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black ${
+                      className={`w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black placeholder:text-gray-400 ${
                         errors.email ? "border border-red-500" : ""
                       }`}
                     />
@@ -240,7 +240,7 @@ const InquiryForm = () => {
                       id="phone"
                       placeholder="Your Phone (optional)"
                       {...register("phone")}
-                      className="placeholder:text-white w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black"
+                      className="w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black placeholder:text-gray-400"
                     />
                   </div>
 
@@ -270,7 +270,7 @@ const InquiryForm = () => {
                     </div>
 
                     {isDropdownOpen && (
-                      <div className="absolute z-10 w-full mt-1 bg-black rounded-md shadow-lg">
+                      <div className="absolute z-10 w-full mt-1 bg-black rounded-md shadow-lg max-h-48 overflow-y-auto">
                         {serviceOptions.map((option) => (
                           <label
                             key={option.value}
@@ -295,21 +295,29 @@ const InquiryForm = () => {
                     )}
                   </div>
 
-                  <div className="mb-2 md:mb-4">
+                  {/* <div className="mb-2 md:mb-4">
                     <select
                       id="budget"
                       {...register("budget")}
-                      className="placeholder:text-white w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black cursor-pointer"
+                      className="w-full px-3 md:px-6 py-4 outline-none rounded-md bg-black cursor-pointer text-gray-400"
                     >
                       <option value="" disabled selected>
                         Budget (optional)
                       </option>
-                      <option value="<25000">&lt; ₹25,000</option>
-                      <option value="25000-50000">₹25,000 - ₹50,000</option>
-                      <option value="50000-100000">₹50,000 - ₹1,00,000</option>
-                      <option value=">100000">₹1,00,000+</option>
+                      <option value="<25000" className="text-white">
+                        &lt; ₹25,000
+                      </option>
+                      <option value="25000-50000" className="text-white">
+                        ₹25,000 - ₹50,000
+                      </option>
+                      <option value="50000-100000" className="text-white">
+                        ₹50,000 - ₹1,00,000
+                      </option>
+                      <option value=">100000" className="text-white">
+                        ₹1,00,000+
+                      </option>
                     </select>
-                  </div>
+                  </div> */}
 
                   <button
                     type="submit"
